@@ -70,11 +70,45 @@ function dejarReposar(condicion) {
 
 
 
-
-function prepararPino(arrCondiciones){
+// manejo con async/await y manejo de errores con try y catch https://es.javascript.info/async-await
+async function prepararPino(arrCondiciones){
+    let log = []
     
+    try{
+        console.log("paso 1")
+        let result = await cocinarCebollas(arrCondiciones[0])
+        log.push(result)
+        log.push({ cebollas:'reservadas', status: 'con agua' })
+        console.log(log)
+
+        console.log("paso 2")
+        let result2 = await sofreirIngredientes(arrCondiciones[1])
+        log.push(result2)
+        console.log(log)
+
+        console.log("paso 3")
+        let result3 = await terminarSofrito(arrCondiciones[2])
+        log.push(result3)
+        console.log(log)
+
+        console.log("paso 4")
+        let result4 = await seguirCocinando(arrCondiciones[3])
+        log.push(result4)
+        console.log(log)
+
+        console.log("Paso 5 y final")
+        let result5 = await dejarReposar(arrCondiciones[4])
+        log.push(result5)
+        console.log(log)
+
+    }
+    catch (result) {
+        console.log(result)
+    }
 }
 
 
 let arrCondiciones = [true,true,true,true,true];
+// let arrCondiciones = [true,true,false,true,true];
+// let arrCondiciones = [true,true,false,true,false];
 prepararPino(arrCondiciones);
