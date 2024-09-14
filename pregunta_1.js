@@ -46,7 +46,7 @@ function seguirCocinando(condicion) {
             if(condicion) {
                 const objReturn = {};
                 objReturn.pino = true;
-                objReturn.status = "retirado del fuego luego de 20minutos";
+                objReturn.status = "retirado del fuego luego de 20 minutos";
                 resolve( objReturn);
                 }
             else reject("Paso04: Fallo en el pino");
